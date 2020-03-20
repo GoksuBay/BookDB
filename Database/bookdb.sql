@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Anamakine: 127.0.0.1
--- Üretim Zamanı: 14 Mar 2020, 13:06:32
+-- Üretim Zamanı: 20 Mar 2020, 15:30:16
 -- Sunucu sürümü: 10.4.11-MariaDB
 -- PHP Sürümü: 7.4.3
 
@@ -83,7 +83,8 @@ CREATE TABLE `users` (
   `username` varchar(100) NOT NULL,
   `email` varchar(100) NOT NULL,
   `pw` varchar(100) NOT NULL,
-  `isAdmin` tinyint(1) NOT NULL DEFAULT 0
+  `isAdmin` tinyint(1) NOT NULL DEFAULT 0,
+  `isBanned` tinyint(1) NOT NULL DEFAULT 0
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
