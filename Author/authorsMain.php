@@ -1,12 +1,17 @@
 <?php
 
-$db = mysqli_connect("localhost", "moderator", "moderator", "books");
+$db = mysqli_connect("localhost", "root", "", "books");
 
 if($db->connect_error)
  die("connection failed :" . $db->connect_error);
- else
- echo "connected succesfully";
+ 
+ $authors1 = "SELECT author FROM books";
+ $authors2 = mysqli_query($db , $authors1);
 
+ while($row=mysqli_fetch_array($authors2)){
+
+    print $row['author'];
+ }
 
 
 
