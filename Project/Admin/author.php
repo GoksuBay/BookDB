@@ -22,10 +22,10 @@ if (isset($_POST["submit"]))
                     mysqli_query($connect, $sql);
                 }
                 else
-                    $_SESSION['message'] = 'File upload failed';
+                    echo 'File upload failed';
         }
         else
-            $_SESSION['message'] = 'You may upload images only';
+            echo 'You may upload images only';
     
 }
 ?>
@@ -34,7 +34,7 @@ if (isset($_POST["submit"]))
     <main>
         <div class ="wrapper-main">
             <section class ="section-default">
-                <h1>Add Category</h1>
+                <h1>Author</h1>
                     <form enctype="multipart/form-data" action="author.php" method="post">
                         <input type="text" name="name" placeholder="Name Surname" required />
                         <input type="text" name="dateofBirth" placeholder="Date of Birth" required />
