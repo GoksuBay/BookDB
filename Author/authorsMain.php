@@ -1,24 +1,16 @@
 <?php
 
-$db = mysqli_connect("localhost", "root", "", "books");
+require "dbconnect.php";
 
-if($db->connect_error)
- die("connection failed :" . $db->connect_error);
- 
- $authors1 = "SELECT author FROM books";
- $authors2 = mysqli_query($db , $authors1);
-
- while($row=mysqli_fetch_array($authors2)){
-
-    print $row['author'];
- }
+mysqli_select_db($connect ,"author");
+$dbQuery=$db->prepare("SELECT * FROM author WHERE id=:id");
+$dbQuery-> execute();
+while($pullData=$dbQuery->fetch(PDO::FETCH_ASSOC)){
 
 
+}
 
 ?>
-
-
-
 
 <!DOCTYPE html>
 <html lang="en">
@@ -56,116 +48,7 @@ font-size: 20px;
 <nav>
 <ul style="list-style-type:none;">
 
-<li><a href="author1.html">author1</a></li>
-<li><a href="author1.html">author1</a></li>
-<li><a href="author1.html">author1</a></li>
-<li><a href="author1.html">author1</a></li>
-<li><a href="author1.html">author1</a></li>
-<li><a href="author1.html">author1</a></li>
-<li><a href="author1.html">author1</a></li>
-<li><a href="author1.html">author1</a></li>
-<li><a href="author1.html">author1</a></li>
-<li><a href="author1.html">author1</a></li>
-<li><a href="author1.html">author1</a></li>
-<li><a href="author1.html">author1</a></li>
-<li><a href="author1.html">author1</a></li>
-<li><a href="author1.html">author1</a></li>
-<li><a href="author1.html">author1</a></li>
-<li><a href="author1.html">author1</a></li>
-<li><a href="author1.html">author1</a></li>
-<li><a href="author1.html">author1</a></li>
-<li><a href="author1.html">author1</a></li>
-<li><a href="author1.html">author1</a></li>
-<li><a href="author1.html">author1</a></li>
-<li><a href="author1.html">author1</a></li>
-<li><a href="author1.html">author1</a></li>
-<li><a href="author1.html">author1</a></li>
-<li><a href="author1.html">author1</a></li>
-<li><a href="author1.html">author1</a></li>
-<li><a href="author1.html">author1</a></li>
-<li><a href="author1.html">author1</a></li>
-<li><a href="author1.html">author1</a></li>
-<li><a href="author1.html">author1</a></li>
-
-
-</ul>
-</nav>
-
-<nav>
-
-<ul style="list-style-type:none;">
-<li><a href="author1.html">author2</a></li>
-<li><a href="author1.html">author2</a></li>
-<li><a href="author1.html">author2</a></li>
-<li><a href="author1.html">author2</a></li>
-<li><a href="author1.html">author2</a></li>
-<li><a href="author1.html">author2</a></li>
-<li><a href="author1.html">author2</a></li>
-<li><a href="author1.html">author2</a></li>
-<li><a href="author1.html">author2</a></li>
-<li><a href="author1.html">author2</a></li>
-<li><a href="author1.html">author2</a></li>
-<li><a href="author1.html">author2</a></li>
-<li><a href="author1.html">author2</a></li>
-<li><a href="author1.html">author2</a></li>
-<li><a href="author1.html">author2</a></li>
-<li><a href="author1.html">author2</a></li>
-<li><a href="author1.html">author2</a></li>
-<li><a href="author1.html">author2</a></li>
-<li><a href="author1.html">author2</a></li>
-<li><a href="author1.html">author2</a></li>
-<li><a href="author1.html">author2</a></li>
-<li><a href="author1.html">author2</a></li>
-<li><a href="author1.html">author2</a></li>
-<li><a href="author1.html">author2</a></li>
-<li><a href="author1.html">author2</a></li>
-<li><a href="author1.html">author2</a></li>
-<li><a href="author1.html">author2</a></li>
-<li><a href="author1.html">author2</a></li>
-<li><a href="author1.html">author2</a></li>
-<li><a href="author1.html">author2</a></li>
-
-
-</ul>
-
-
-
-
-</nav>
-
-<nav>
-
-<ul style="list-style-type:none;">
-<li><a href="author1.html">author3</a></li>
-<li><a href="author1.html">author3</a></li>
-<li><a href="author1.html">author3</a></li>
-<li><a href="author1.html">author3</a></li>
-<li><a href="author1.html">author3</a></li>
-<li><a href="author1.html">author3</a></li>
-<li><a href="author1.html">author3</a></li>
-<li><a href="author1.html">author3</a></li>
-<li><a href="author1.html">author3</a></li>
-<li><a href="author1.html">author3</a></li>
-<li><a href="author1.html">author3</a></li>
-<li><a href="author1.html">author3</a></li>
-<li><a href="author1.html">author3</a></li>
-<li><a href="author1.html">author3</a></li>
-<li><a href="author1.html">author3</a></li>
-<li><a href="author1.html">author3</a></li>
-<li><a href="author1.html">author3</a></li>
-<li><a href="author1.html">author3</a></li>
-<li><a href="author1.html">author3</a></li>
-<li><a href="author1.html">author3</a></li>
-<li><a href="author1.html">author3</a></li>
-<li><a href="author1.html">author3</a></li>
-<li><a href="author1.html">author3</a></li>
-<li><a href="author1.html">author3</a></li>
-<li><a href="author1.html">author3</a></li>
-<li><a href="author1.html">author3</a></li>
-<li><a href="author1.html">author3</a></li>
-<li><a href="author1.html">author3</a></li>
-<li><a href="author1.html">author3</a></li>
-<li><a href="author1.html">author3</a></li>
+<li><a href="authors1.php?id=<?php echo $pullData['id'] ?>"> <?php print_r($pullData['name']); ?> </a> </li>
 
 </ul>
 
