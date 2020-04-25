@@ -1,7 +1,7 @@
 <?php
 session_start();
 $_SESSION['message']= '';
-require "includes/dbconnect.php";
+require "../includes/dbconnect.php";
 
 if (isset($_POST["submit"]))
 {
