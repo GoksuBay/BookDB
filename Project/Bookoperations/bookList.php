@@ -9,16 +9,17 @@
 </head>
 
 <?php 
-require_once 'connect.php';
+require_once '../includes/dbconnect.php';
 
-$dbQuery=$db->prepare("SELECT * FROM book"); // selects the book table 
- $dbQuery->execute(); //executes the queys
- while($pullData=$dbQuery->fetch(PDO:: FETCH_ASSOC)){ // lists books from database [array]
+$bookListSql= "SELECT * FROM book";
+$bookListResult=mysqli_query($connect,$bookListSql);
+
+ while($pullData=mysqli_fetch_assoc($bookListResult)){ // lists books from database [array]
 
  	?>
 
  	<body> 
- 		<a href="bookInfo.php?id=<?php echo $pullData['id'] ?> "> <?php print_r($pullData['bookName']); ?>  </a> <?php //prints books as a link ?>
+ 		<a href="bookInfo.php?ISBN=<?php echo $pullData['ISBN'] ?> "> <?php print_r($pullData['name']); ?>  </a> <?php //prints books as a link ?>
  		<hr>
  	</body>
 
