@@ -1,13 +1,20 @@
 <?php
+session_start();
 
-require "dbconnect.php";
+require "../includes/dbconnect.php";
 
-$dbQuery=$db->prepare("SELECT * FROM book WHERE id=:id");
-$dbQuery->execute(array(
-  'id' => $_GET['id']));
-$dbPull=$dbQuery->fetch(PDO::FETCH_ASSOC);
+$id = intval($_GET['id']);
+$result=mysqli_query($connect,"SELECT * FROM author WHERE id='$id'");
+$rows=mysqli_fetch_assoc($result);
+  
+    ?>
+<header>
+    <?php 
+echo $rows['name'];
+    ?>
+</header>
 
-?>
+
 
 <!DOCTYPE html>
 <html lang="en">
@@ -57,84 +64,45 @@ height:400px;
 }
 
 </style>
-
-<header>
-    <?php 
-    echo $dbPull['name'];
-    ?>
-</header>
-
 <nav>
+<img src=  "<?php echo '../Admin/'  .$rows['photo'];  ?> " > </img>
 
-<img src="authorpic.jpg" width="200" height="200"> 
-<?php echo $dbPull['photo']; ?>
-</img>
 
-<p>Score :
-    <?php
-    echo $dbPull['score'];
-    ?>
+<p>Score :</p>
+<?php 
+echo $rows['score'];
+?>
+ 
 
-</p>
-<p>Date Of Birth:
-    <?php
-    echo $dbPull['dateofBirth'];
-    ?>
 
-</p>
+<p>Date Of Birth:</p>
+<?php 
+echo $rows['dateofBirth'];
+?>
+
 </nav>
 
 <article>
 <h3>About</h3>
-<p> 
-    <?php
-    echo $dbPull['about'];
-    ?>
-</p>
+<?php 
+echo $rows['about'];
+?>
+
 </article>
 
-
-<books>
-<h3>Books Top 6</h3>
-<img src="authorsbookpic.jpg" width="210" height="300">
-
-</books>
-
-<footer>
 <h3>All Books</h3>
-<ul style="list-style-type:none;">
+<?php
 
-<li>
-<li><a href="bookInfo.php?id=<?php echo $pullData['id'] ?>"> <?php print_r($pullData['bookID']); ?> </a> </li>
-
-
-
-</ul>
+$result1=mysqli_query($connect,"SELECT * FROM book WHERE authorID='$id'");
+while($rows1=mysqli_fetch_assoc($result1)){
 
 
-
-
+?>
+<footer>
+<a href = "../Bookoperations/bookInfo.php?ISBN=<?php echo $rows1['ISBN']?>" > <?php echo $rows1['name']; } ?> </a>
 
 </footer>
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 </body>
 </html>
+

@@ -1,23 +1,10 @@
-<?php
-
-require "dbconnect.php";
-
-mysqli_select_db($connect ,"author");
-$dbQuery=$db->prepare("SELECT * FROM author WHERE id=:id");
-$dbQuery-> execute();
-while($pullData=$dbQuery->fetch(PDO::FETCH_ASSOC)){
-
-
-}
-
-?>
-
+<?php session_start(); ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
 <title>Author1</title>
 <meta charset="utf-8">
-
+<header>Authors</header>
 </head>
 <body>
 
@@ -32,29 +19,29 @@ font-size: 25px;
 
 } 
 
-nav ul{
-float: left;
-width:400px;
-height:720px;
-padding: 20px;
-background-color:cornflowerblue;
-text-align: center;
-font-size: 20px;
-
-}
 
 </style>
-<header>Authors</header>
-<nav>
-<ul style="list-style-type:none;">
 
-<li><a href="authors1.php?id=<?php echo $pullData['id'] ?>"> <?php print_r($pullData['name']); ?> </a> </li>
-
-</ul>
-
-
-
-
-</nav>
 </body>
 </html>
+<?php
+
+
+require "../includes/dbconnect.php";
+
+$authorlistSql="SELECT * FROM author";
+$authorlistResult=mysqli_query($connect,$authorlistSql);
+
+while($pullData=mysqli_fetch_assoc($authorlistResult)){
+    ?>
+
+    
+
+<nav>
+
+<ul style="list-style-type:none;">
+
+<a href="authors1.php?id=<?php echo $pullData['id']?>"><?php  print_r($pullData['name']);?></a>
+</ul>
+</nav>
+<?php   }  ?>
