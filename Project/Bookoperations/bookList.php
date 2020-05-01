@@ -1,3 +1,5 @@
+<?php  session_start(); 
+require_once '../includes/dbconnect.php';?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -9,7 +11,7 @@
 </head>
 
 <?php 
-require_once '../includes/dbconnect.php';
+
 
 $bookListSql= "SELECT * FROM book";
 $bookListResult=mysqli_query($connect,$bookListSql);
