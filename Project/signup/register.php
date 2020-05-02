@@ -26,9 +26,9 @@ if (isset($_POST["submit"]))
             {
 
                 
-                if(move_uploaded_file($_FILES['photo']['tmp_name'], 'images/user'.$username.'_'.$profilePhoto))
+                if(move_uploaded_file($_FILES['photo']['tmp_name'], '../Admin/images/users/'.$username.'_'.$profilePhoto))
                 {
-                    $photoPath = 'images/'.$username.'_'.$profilePhoto;
+                    $photoPath = '../Admin/images/users/'.$username.'_'.$profilePhoto;
                     $sql = "INSERT INTO users (username, email, pw, photo) VALUES ('$username', '$email', '$password', '$photoPath')";
                     mysqli_query($connect, $sql);
                 }
