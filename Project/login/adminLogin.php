@@ -6,31 +6,29 @@ if(isset($_SESSION['id']) == NULL)
 if (isset($_POST['submit']))
 {
     require "../includes/dbconnect.php";
-
     $username = $_POST['username'];
     $password = $_POST['pw'];
-
-    $sql = "SELECT * FROM users WHERE username = ? OR email = ?";
+    $sql = "SELECT * FROM admin WHERE username = ?";
     $stmt = mysqli_stmt_init($connect);
 
+   
     if(mysqli_stmt_prepare($stmt, $sql))
     {
         
-        mysqli_stmt_bind_param($stmt, "ss", $username, $username);
+        mysqli_stmt_bind_param($stmt, "s", $username);
         mysqli_stmt_execute($stmt);
         $result = mysqli_stmt_get_result($stmt);
         if($row = mysqli_fetch_assoc($result))
         {
-            if(md5($password) !== $row['pw'])
+            if(md5($password) !== $row['password'])
             {
                 echo "Wrong PW";
             }
-            else if(md5($password) === $row['pw'])
+            else if(md5($password) === $row['password'])
             {
                 $_SESSION['username'] = $row['username'];
                 $_SESSION['id'] = $row['id'];
-
-                header("Location: ../home.php");
+                header("Location ../home.php");
             }
         }
         else
@@ -43,7 +41,7 @@ if (isset($_POST['submit']))
 }
 }
 else
-    header("Location: ../errorLogin.php");
+    header("Location: ../errorLogin.php"); 
 
 
 ?>
@@ -53,12 +51,11 @@ else
         <div class ="wrapper-main">
             <section class ="section-default">
                 <h1>Login</h1>
-                    <form enctype="multipart/form-data" action="login.php" method="post">
+                    <form enctype="multipart/form-data" action="adminLogin.php" method="post">
                         <input type="text" name="username" placeholder="Username" required />
                         <input type="password" name="pw" placeholder="Password" required />
                         <input type="submit" name="submit" value = "Submit">
                     </form>
-                    <input type="button" name="forgotten" value = "Forgot Password?" onclick="document.location.href='forgotPassword.php'">
             </section>
         </div>
     </main>
