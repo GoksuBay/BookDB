@@ -20,7 +20,7 @@ if ($_SESSION['id']!=$userID&&isset($_SESSION['id'])) {
 	$userScore+=1;
 	$userSql="UPDATE users SET score='$userScore' WHERE id='$userID'";
 	$userResult=mysqli_query($connect,$userSql);
-    echo "You like the review successfully. <br>";
+    echo "You liked the review successfully. <br>";
 
 } else
 echo "You are not be able to like your review.Or you may not logged in.<br>";
