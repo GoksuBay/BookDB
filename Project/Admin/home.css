@@ -1,0 +1,32 @@
+
+body{
+	background-color: #ced6e0;
+}
+input[type=button]{
+	padding: 5px;
+	margin: 20px;
+	font-family: verdana;
+	font-size: 15px;
+	border-radius: 20px;
+	border-style: groove;
+	border-width: 2px;
+	width: 100px;
+	height: 45px;
+	border-color: #ff6600;
+	background-color: #f1f2f6;
+	color: white;
+}
+
+legend{
+	font-family: verdana;
+	font-style: bold;
+	font-size: 22px;
+	color: #ff6600;
+}
+a, div.all{
+	font-family: "Lucida Console", Courier, monospace;
+	font-style: bold;
+	font-size: 18px;
+	margin: 10px;
+	color: #2f3542;
+}

@@ -1,0 +1,42 @@
+
+body{
+	background-color: #ced6e0;
+}
+
+h1{
+	text-align: center;
+	color: #ff6600;
+	font-family: verdana;
+	font-size: 45px;
+	text-shadow: 1px 1px #ffaf40;
+	padding: 30px;
+	padding-top: 50px;
+}
+
+input[type=text]{
+	width: 700px;
+	height: 40px;
+	font-size: 15px;
+	padding: 10px;
+	margin: 20px;
+	font-family: "Lucida Console", Courier, monospace;
+	background-color: #f1f2f6;
+	border-style: groove;
+	border-radius: 20px;
+	border-color: #ff6600; 
+}
+
+input[type=submit]{
+	width: 100px;
+	height: 45px;
+	font-size: 15px;
+	padding: 5px;
+	margin: 10px;
+	font-family: verdana;
+	color: white;
+	border-radius: 20px;
+	border-style: groove;
+	background-color: #2f3542;
+	border-color: #2f3542;
+	color: white; 
+}

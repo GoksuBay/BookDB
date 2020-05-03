@@ -1,0 +1,57 @@
+
+body{
+	background-color: #ced6e0;
+}
+
+h1{
+	text-align: center;
+	color: #ff6600;
+	font-family: verdana;
+	font-size: 45px;
+	text-shadow: 1px 1px #ffaf40;
+	padding: 30px;
+	padding-top: 50px;
+}
+
+input{
+	width: 300px; 
+	border-style: groove;
+	border-radius: 20px;
+	border-color: #ff6600;
+	background-color: #f1f2f6; 
+	padding: 20px;
+	font-size: 18px;
+	font-family: "Lucida Console", Courier, monospace;
+	background-color: #f1f2f6;
+}
+
+div.firstbutton{
+	position: relative;
+	left: 780px;
+	top: 60px;
+}
+div.secondbutton{
+	position: relative;
+	left: 780px;
+	top: 100px;
+}
+div.thirdbutton{
+	position: relative;
+	left: 780px;
+	top: 140px;
+}
+div.fourthbutton{
+	position: relative;
+	left: 780px;
+	top: 180px;
+}
+div.fifthbutton{
+	position: relative;
+	left: 780px;
+	top: 220px;
+}
+div.sixthbutton{
+	position: relative;
+	left: 780px;
+	top: 260px;
+}

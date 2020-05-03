@@ -2,7 +2,7 @@
 session_start();
 $_SESSION['message']= '';
 require "../includes/dbconnect.php";
-if(isset($_SESSION['adminid']) == NULL)
+if(isset($_SESSION['adminid']) != NULL)
     header("Location: ../noPermission.php");
 
 if (isset($_POST["submit"]))
@@ -52,18 +52,25 @@ if (isset($_POST["submit"]))
 ?>
 
 <!DOCTYPE html>
+<html>
+<head>
+    <title>Book</title>
+    <link rel="stylesheet" type="text/css" href="book.css">
+    <meta charset="utf-8">
+</head>
+<body>
     <main>
         <div class ="wrapper-main">
             <section class ="section-default">
                 <h1>Add Category</h1>
                     <form enctype="multipart/form-data" action="book.php" method="post">
                     
-                    <input type="number" name="ISBN" placeholder="ISBN" required/>
-                        <input type="text" name="name" placeholder="Name" required />
-                        <input type="text" name="releaseDate" placeholder="Release Date" required />
-                        <textarea rows="4" cols="50" name ="summary" required placeholder="Summary"></textarea>
-                        <input type="file" name='photo' accept="image/*" required />
-                        <select name ="category">
+                    <input type="number" name="ISBN" placeholder="ISBN" required/><br>
+                        <input type="text" name="name" placeholder="Name" required /><br>
+                        <input type="text" name="releaseDate" placeholder="Release Date" required /><br>
+                        <textarea rows="4" cols="50" name ="summary" required placeholder="Summary"></textarea><br>
+                        <input type="file" name='photo' accept="image/*" required /><br>
+                        <div class="select"><select name ="category" style="min-width: 200px; min-height: 30px;border-radius: 20px; border-width: 2px;background-color: #f1f2f6; border-color: #ff6600; font-style: bold; font-family: verdana; padding: 5px; font-size: 15px;">
                             <?php
                                 $result = mysqli_query($connect, "SELECT categoryName FROM category");
                                 while($rows = mysqli_fetch_assoc($result))
@@ -72,8 +79,8 @@ if (isset($_POST["submit"]))
                                 echo '<option value = "' .$category. '">' .$category.'</option>';
                                 }
                             ?>
-                        </select>
-                        <select name ="author">
+                        </select></div>
+                        <div class="select"><select name ="author" style="min-width: 200px; min-height: 30px; border-radius: 20px; border-width: 2px;background-color: #f1f2f6; border-color: #ff6600; font-style: bold; font-family: verdana; padding: 5px; font-size: 15px;">
                             <?php
                                 $result = mysqli_query($connect, "SELECT name FROM author");
                                 while($rows = mysqli_fetch_assoc($result))
@@ -82,11 +89,12 @@ if (isset($_POST["submit"]))
                                 echo '<option value = "' .$author. '">' .$author.'</option>';
                                 }
                             ?>
-                        </select>
+                        </select></div>
                         <input type="submit" name="submit" value = "Submit">
                         
                     </form>
             </section>
         </div>
     </main>
-</html>    
+</body>
+</html>

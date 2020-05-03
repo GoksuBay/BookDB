@@ -1,31 +1,16 @@
 <?php session_start(); 
-if(isset($_SESSION['adminid']) == NULL)
+if(isset($_SESSION['adminid']) != NULL)
 header("Location: ../noPermission.php");?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<title>Author1</title>
+<title>Authors List</title>
+<link rel="stylesheet" type="text/css" href="authorsList.css">
 <meta charset="utf-8">
-<header>Authors</header>
+<h1><header>Authors</header></h1>
 </head>
 <body>
 
-<style>
-
-header{
-padding: 20px;
-background-color:coral;
-text-align: center;
-font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif ;
-font-size: 25px;
-
-} 
-
-
-</style>
-
-</body>
-</html>
 <?php
 
 
@@ -35,7 +20,7 @@ if(isset($_POST["delete"]))
 {
     $id = intval($_GET['id']);
     $queryBook = "DELETE FROM book WHERE authorID ='$id'";
-	$queryAuthor = "DELETE FROM author WHERE id = '$id'";
+    $queryAuthor = "DELETE FROM author WHERE id = '$id'";
     mysqli_query($connect, $queryBook);
     mysqli_query($connect, $queryAuthor);
 }
@@ -52,12 +37,14 @@ while($pullData=mysqli_fetch_assoc($authorlistResult)){
 
 <ul style="list-style-type:none;">
 
-        <a <?php echo $pullData['id'] ?> > <?php print_r($pullData['name']); ?></a>
+        <div class="oneof"><h2><a <?php echo $pullData['id'] ?> > <?php print_r($pullData['name']); ?></a></h2>
         <form action="authorsList.php?id=<?php echo $pullData['id']?>" method="post">
-		 <input type="submit" value="Delete" name="delete">
-		 </form>
-		 <input type="button" value="More Info" name="moreInfo" onclick="location.href='authorsInfo.php?ISBN=<?php echo $pullData['id']?>';">
+         <div><input type="submit" value="Delete" name="delete">
+         </form>
+         <input type="button" value="More Info" name="moreInfo" onclick="location.href='authorInfo.php?id=<?php echo $rows['id']?>';"></div></div>
 </ul>
 </nav>
 <?php   }  ?>
+
+</body>
 </html>

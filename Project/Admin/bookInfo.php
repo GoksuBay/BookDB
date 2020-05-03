@@ -1,6 +1,6 @@
 <?php session_start();
 require_once '../includes/dbconnect.php'; 
-if(isset($_SESSION['adminid']) == NULL)
+if(isset($_SESSION['adminid']) != NULL)
     header("Location: ../noPermission.php");?>
 
 <?php 
@@ -35,6 +35,9 @@ if(isset($_POST['submit']))
 
 <html>
 <head>
+	<title>Book Info</title>
+	<link rel="stylesheet" type="text/css" href="bookInfo.css">
+	<meta charset="utf-8">
 	
 </head>
 
@@ -42,28 +45,28 @@ if(isset($_POST['submit']))
 </br>	
 <img src="<?php echo "../Admin/".$pullData['image']; ?>"></img>
 
-<hr color="black" /> 
-<p><h1> Summary: <br>  </h1> </p>            
-<hr color="black" />
-<h1>
+
+<h1> Summary <br>  </h1>       
+
+<h2>
 	<ul>
 		<!-- List for book informations  -->
-		<a href="">              <li> Author:<?php echo $pullAuthorData['name']; ?> </li>         </a>
+		<div><a href="">              <li> Author:<?php echo $pullAuthorData['name']; ?> </li>         </a></div><br>
 		
+		<div><li> Score:   <?php echo $pullData['score']; ?></li></div><br>
+		<div><li> Category: <?php echo $pullCategoryData['categoryName']; ?>  </li></div><br>
+		<div><li> Release Date:  <?php echo $pullData['releaseDate']; ?></li></div><br>
 		
-		<li> Score:   <?php echo $pullData['score']; ?></li>
-		<li> Category: <?php echo $pullCategoryData['categoryName']; ?>  </li>
-		<li> Release Date:  <?php echo $pullData['releaseDate']; ?></li>
 
 		<form enctype="multipart/form-data" action="bookInfo.php?ISBN=<?php echo $ISBN?>" method="post">
-		<li> Name:<input type="text" name="name" value= <?php echo $pullData['name']?> required></li>
-		<li> ISBN:<input type="number" value= "<?php echo $pullData['ISBN']?>" name="ISBN"> </li>
-		<li> Summary<textarea rows="4" cols="50" name ="summary" required placeholder="Summary"> <?php echo $pullData['summary']?></textarea> </li>
+		<li> Name: <input type="text" name="name" value= <?php echo $pullData['name']?> required></li><br>
+		<li> ISBN: <input type="number" value= "<?php echo $pullData['ISBN']?>" name="ISBN"> </li><br>
+		<li> Summary: <br><br><textarea rows="4" cols="50" name ="summary" required placeholder="Summary"> <?php echo $pullData['summary']?></textarea> </li><br>
 			<input type="submit" name="submit" value = "Submit">
                         
         </form>
 
-	</h1>
+	</h2>
 </ul>
 </body>
 

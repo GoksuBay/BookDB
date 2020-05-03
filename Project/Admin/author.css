@@ -1,0 +1,78 @@
+
+body{
+	background-color: #ced6e0;
+}
+
+h1{
+	text-align: center;
+	color: #ff6600;
+	font-family: verdana;
+	font-size: 45px;
+	text-shadow: 1px 1px #ffaf40;
+	padding: 30px;
+	padding-top: 50px;
+}
+
+textarea{
+	width: 700px;
+	height: 200px;
+	border-width: 2px;
+	position: relative;
+	left: 580px;
+}
+
+input[type=text]{
+	width: 550px;
+	height: 50px;
+	margin-bottom: 30px;
+	position: relative;
+	left: 650px;
+}
+
+input[type=text], textarea{
+	border-style: groove;
+	border-radius: 20px;
+	border-color: #ff6600;
+	background-color: #f1f2f6;
+	font-family: "Lucida Console", Courier, monospace;
+	padding: 10px;
+	font-size: 18px;
+
+}
+input[type=file]{
+	position: relative;
+	left: 680px;
+	position: relative;
+	top: 30px;
+	padding: 5px;
+	font-family: "Lucida Console", Courier, monospace;
+	font-size: 15px;
+	border-radius: 20px;
+	border-style: groove;
+	border-width: 2px;
+	width: 250px;
+	height: 28px;
+	background-color: #f1f2f6;
+	border-color: #ff6600;
+}
+
+input[type=submit]{
+	position: relative;
+	left: 780px;
+	position: relative;
+	top: 30px;
+	padding: 5px;
+	font-family: "Lucida Console", Courier, monospace;
+	font-size: 15px;
+	border-radius: 20px;
+	border-style: groove;
+	border-width: 2px;
+	width: 100px;
+	height: 45px;
+	background-color: #2f3542;
+	border-color: #2f3542;
+	color: white;
+	position: relative;
+	top: 80px;
+}
+

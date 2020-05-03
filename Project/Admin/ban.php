@@ -1,7 +1,7 @@
 <?php
 session_start();
 require "../includes/dbconnect.php";
-if(isset($_SESSION['adminid']) == NULL)
+if(isset($_SESSION['adminid']) != NULL)
     header("Location: ../noPermission.php");
 $id = intval($_GET['id']);
 
@@ -26,6 +26,13 @@ if(isset($_POST['submit']))
 ?>
 
 <!DOCTYPE html>
+<html>
+<head>
+    <title>Ban</title>
+    <link rel="stylesheet" type="text/css" href="ban.css">
+    <meta charset="utf-8">
+</head>
+<body>
     <main>
         <div class ="wrapper-main">
             <section class ="section-default">
@@ -37,4 +44,6 @@ if(isset($_POST['submit']))
             </section>
         </div>
     </main>
-</html>    
+</body>
+</html>
+   

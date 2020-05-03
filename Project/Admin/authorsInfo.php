@@ -2,7 +2,7 @@
 session_start();
 
 require "../includes/dbconnect.php";
-if(isset($_SESSION['adminid']) == NULL)
+if(isset($_SESSION['adminid']) != NULL)
     header("Location: ../noPermission.php");
     
 $id = intval($_GET['id']);
@@ -21,63 +21,26 @@ echo $rows['name'];
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<title>Author1</title>
+<title>Authors Info</title>
+<link rel="stylesheet" type="text/css" href="authorsInfo.css">
 <meta charset="utf-8">
 
 
 </head>
 <body>
 
-<style>
-
-header{
-padding: 20px;
-background-color:coral;
-text-align: center;
-font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif ;
-font-size: 25px;
-
-
-}
-
-nav{
-float: left;
-padding: 20px;
-text-align: center;
-font-size: 20px;
-width:300px;
-height:400px;
-}
-
-article{
-float: right;
-padding: 20px;
-padding-top: 30px;
-text-align: left;
-font-size: 18px;
-width:950px;
-height:400px;
-
-
-}
-
-.books{
-    padding-left: 60px;
-}
-
-</style>
 <nav>
 <img src=  "<?php echo '../Admin/'  .$rows['photo'];  ?> " > </img>
 
 
-<p>Score :</p>
+<p>Score: </p>
 <?php 
 echo $rows['score'];
 ?>
  
 
 
-<p>Date Of Birth:</p>
+<p>Date Of Birth: </p>
 <?php 
 echo $rows['dateofBirth'];
 ?>
@@ -85,7 +48,7 @@ echo $rows['dateofBirth'];
 </nav>
 
 <article>
-<h3>About</h3>
+<h4><u>About</u></h4>
 <?php 
 echo $rows['about'];
 ?>
