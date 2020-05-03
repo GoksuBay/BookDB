@@ -20,9 +20,10 @@ $categoryResult=mysqli_query($connect,$categorysql);
 while($pullBook=mysqli_fetch_assoc($categoryResult)){
 ?>
 
+<li style="list-style-type: none"><img src=  "<?php echo '../Admin/'  .$pullBook['image'];  ?> " style="width:150px;height:200px;"> </img> </li>
 
 <li style="list-style-type: none"> <a href = "../Bookoperations/bookInfo.php?ISBN=<?php echo $pullBook['ISBN']?>" > <?php echo $pullBook['name']; } ?> </a> </li>
-
+<br>
 
 
 

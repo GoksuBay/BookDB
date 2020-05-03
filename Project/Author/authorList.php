@@ -39,9 +39,9 @@ while($pullData=mysqli_fetch_assoc($authorlistResult)){
 
 <nav>
 
-<ul style="list-style-type:none;">
 
-<a href="authors1.php?id=<?php echo $pullData['id']?>"><?php  print_r($pullData['name']);?></a>
-</ul>
+<li style="list-style-type: none"><img src=  "<?php echo '../Admin/'  .$pullData['photo'];  ?> " style="width:100px;height:100px;"> </img> </li> 
+<li style="list-style-type: none"> <a href="authors1.php?id=<?php echo $pullData['id']?>"><?php  print_r($pullData['name']);?></a> </li>
+
 </nav>
 <?php   }  ?>

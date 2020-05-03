@@ -59,18 +59,31 @@ height:400px;
 
 }
 
-.books{
-    padding-left: 60px;
+ul{
+    padding-left: 10px;
 }
+
+
 
 </style>
 <nav>
-<img src=  "<?php echo '../Admin/'  .$rows['photo'];  ?> " > </img>
+<img src=  "<?php echo '../Admin/'  .$rows['photo'];  ?> " style="width:200px;height:200px;"> </img>
 
 
-<p>Score :</p>
+
 <?php 
-echo $rows['score'];
+
+$query="SELECT AVG(score) FROM book WHERE authorID='$id'";
+$result=mysqli_query($connect,$query) or die(mysqli_error('error'));
+while($row3=mysqli_fetch_array($result)){
+$score= $row3['AVG(score)'];
+?>
+<p>Score: <?php echo $row3['AVG(score)']; ?></p>
+<?php
+}
+$query2="INSERT INTO author(score) VALUES ($score) WHERE authorID='$id'";
+mysqli_query($connect,$query2);
+
 ?>
  
 
@@ -86,20 +99,25 @@ echo $rows['dateofBirth'];
 <h3>About</h3>
 <?php 
 echo $rows['about'];
+$result=mysqli_query($connect,"SELECT COUNT(*) AS count FROM book WHERE authorID='$id'");
+$counter=mysqli_fetch_assoc($result);
+
 ?>
 
 </article>
 
-<h3>All Books</h3>
+<h3>All Books (<?php  echo $counter['count']; ?>) </h3>
 <?php
 
 $result1=mysqli_query($connect,"SELECT * FROM book WHERE authorID='$id'");
 while($rows1=mysqli_fetch_assoc($result1)){
+  
 
 
 ?>
 <footer>
-<a href = "../Bookoperations/bookInfo.php?ISBN=<?php echo $rows1['ISBN']?>" > <?php echo $rows1['name']; } ?> </a>
+<ul><img src=  "<?php echo '../Admin/'  .$rows1['image'];  ?> " style="width:75px;height:100px;"> </img> </ul>
+<li style="list-style-type: none"><a href = "../Bookoperations/bookInfo.php?ISBN=<?php echo $rows1['ISBN']?>" > <?php echo $rows1['name'];  } ?> </a></li>
 
 </footer>
 
