@@ -1,10 +1,16 @@
-<?php require  "includes/dbconnect.php";
+<?php 
+session_start();
+require  "includes/dbconnect.php";
 
 $categorysql = "SELECT * FROM category"; 
 $booksql = "SELECT * FROM book ORDER BY score";
 $usersql = "SELECT * FROM users ORDER BY score DESC";
 $resultcategory = mysqli_query($connect, $categorysql);
 $resultusers = mysqli_query($connect, $usersql);
+$resultBooks = mysqli_query($connect, $booksql);
+
+
+
 ?>
 
 <!DOCTYPE html>
@@ -14,11 +20,25 @@ $resultusers = mysqli_query($connect, $usersql);
 	<meta charset="utf-8">
 </head>
 <body>
-<img src="" width="2000px" height=" 700px" align="right">
+<?php if(isset($_SESSION['id']) == NULL)
+{
+?>
+
+
 <br><br>
 <div align="right">
-	<img src="" width="100px" height="100px" border="3" bordercolor ="black">
-	<h3> Name Surname </h3> <h5> OPS : 33 </h5>
+<input type ="button" name="button" value="Login" onclick="document.location.href='login/login.php'">
+<input type ="button" name="button" value="Sign Up" onclick="document.location.href='signup/register.php'"> </div> <?php }
+else
+{
+	$id=$_SESSION['id'];
+	$resultLoggedin = mysqli_query($connect, "SELECT * FROM users WHERE id = '$id'");
+	$rowLoggedin = mysqli_fetch_assoc($resultLoggedin);
+	?>
+	<div align="right">
+	<img src="<?php echo 'Admin/'.$rowLoggedin['photo']?>" width="100px" height="100px" border="3" bordercolor ="black">
+	<h3> <?php echo $rowLoggedin['username'] ?> </h3> <h5> <?php echo $rowLoggedin['score']; ?> </h5>
+<input type ="button" name="button" value="Logout" onclick="document.location.href='login/logout.php'"> <?php } ?>
 </div>
 <hr>
 <br><br>
@@ -35,18 +55,25 @@ for ($i=0; $i <9 ; $i++) {
 	$categories = mysqli_fetch_assoc($resultcategory);
 				
 			?>
-			<a href ="Categories/categories1.php?id=<?php echo $categories['id']?>"><li><li style="list-style-type: none"><?php print_r($categories['categoryName']); } ?></li> </li></a>
+			<img src="<?php echo 'Admin/'.$categories['photo']?>" width="90px" height="90px" border="2" bordercolor ="orange">
+			<a href ="Categories/categoryInfo.php?id=<?php echo $categories['id']?>"><li><li style="list-style-type: none"><?php print_r($categories['categoryName']); } ?></li> </li></a>
 			
 		</ul>
 	</fieldset><br>
 	<fieldset>
-		<legend><b>The Most Popular...</b></legend>
+		<legend><b>The Most Popular Books</b></legend>
 		<ul>
-			<a href=""><li> Books </li></a>
-			<a href=""><li> Writers </li></a>
+		<?php 
+
+for ($i=0; $i <9 ; $i++) { 
+	$books = mysqli_fetch_assoc($resultBooks);
+				
+			?>
+			<img src="<?php echo 'Admin/'.$books['photo'] ?>" width="90px" height="90px" border="2" bordercolor ="orange">
+			<a href ="Bookoperations/bookInfo.php?id=<?php echo $books['ISBN']?>"><li><li style="list-style-type: none"><?php print_r($books['name']); } ?></li> </li></a>
 		</ul>
 	</fieldset><br>
-	<fieldset><a href=""> Last Added Books </a></fieldset>
+	<fieldset><a href="Bookoperations/bookList.php"> All Books </a></fieldset>
 	</form>
 	<br><hr><br>
 	<form>
@@ -57,7 +84,7 @@ for ($i=0; $i <9 ; $i++) {
 					$users = mysqli_fetch_assoc($resultusers);
 			?>
 			<br>
-			<img src="<?php echo 'Admin/'.$users['photo'] ?>" width="30px" height="30px" border="2" bordercolor ="orange">
+			<img src="<?php echo 'Admin/'.$users['photo'] ?>" width="90px" height="90px" border="2" bordercolor ="orange">
 			<h5>User: <?php print_r($users['username']) ?> </h5><h6> <?php print_r($users['score']); } ?> </h6>
 			<br>
 			
