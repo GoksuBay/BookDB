@@ -56,7 +56,7 @@ while($pullData=mysqli_fetch_assoc($authorlistResult)){
         <form action="authorsList.php?id=<?php echo $pullData['id']?>" method="post">
 		 <input type="submit" value="Delete" name="delete">
 		 </form>
-		 <input type="button" value="More Info" name="moreInfo" onclick="location.href='authorsInfo.php?id=<?php echo $pullData['id']?>';">
+		 <input type="button" value="More Info" name="moreInfo" onclick="location.href='authorsInfo.php?ISBN=<?php echo $pullData['id']?>';">
 </ul>
 </nav>
 <?php   }  ?>
