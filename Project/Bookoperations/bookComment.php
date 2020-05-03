@@ -31,7 +31,7 @@ $pullBookData=mysqli_fetch_assoc($bookResult);
 $bookScore=$pullBookData['score'];
 
 if (isset($_POST['Delete'])) {
-	if ($_SESSION['id']==$userReviewID) {
+	if ($_SESSION['id']==$userReviewID&&isset($_SESSION['id'])) {
 		$bookScore-=$givenScore;
 		$reviewDeleteSql="DELETE FROM reviews WHERE id='$reviewID'";
 		$reviewDeleteResult=mysqli_query($connect,$reviewDeleteSql);
