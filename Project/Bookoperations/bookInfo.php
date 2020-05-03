@@ -4,9 +4,11 @@ require_once '../includes/dbconnect.php'; ?>
 
 <?php 
 $ISBN=intval($_GET['ISBN']);
-$userID=$_SESSION['id'];
-$choosenPoint=$_POST['Score'];
+$userID=0;
 
+if (isset($_SESSION['id'])) {
+	$userID=$_SESSION['id'];
+}
 
 
 $bookListSql= "SELECT * FROM book WHERE ISBN='$ISBN'";
@@ -28,16 +30,18 @@ $reviewListSql= "SELECT * FROM reviews WHERE userID='$userID' AND bookID='$ISBN'
 $reviewListResult=mysqli_query($connect,$reviewListSql);
 $pullReviewData=mysqli_fetch_assoc($reviewListResult);
 
-$review=$_POST['review'];
+
 
 
 if (isset($_POST['submit'])) {
 
-	if ($choosenPoint!="-") {
+	if ($_POST['Score']!="-") {
 
 		if (mysqli_num_rows($reviewListResult)<1) {
 
 			if (isset($_SESSION['id'])) {
+				$review=$_POST['review'];
+				$choosenPoint=$_POST['Score'];
 				$bookScore+=$choosenPoint;
 				$sql="INSERT INTO reviews (review, bookID, userID) VALUES ('$review','$ISBN','$userID')";
 				mysqli_query($connect,$sql);
@@ -47,12 +51,15 @@ if (isset($_POST['submit'])) {
 			}
 		} 
 	}
-	
-	if (mysqli_num_rows($reviewListResult)==1) {
+	if (!isset($_SESSION['id'])) {
+		echo "You can not add a review without logged in.";
+	}
+
+	elseif (mysqli_num_rows($reviewListResult)==1) {
 		echo "You have already added a review for this book.";
 	}
 
-	elseif ($choosenPoint=="-") {
+	elseif ($_POST['Score']=="-") {
 		echo "You have to choose a point to add a review";
 	}
 	
