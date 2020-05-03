@@ -99,6 +99,7 @@ if (isset($_POST['submit'])) {
 		<th>Rewiew </th>
 		<th>Like rewiew </th>
 		<th>Dislike rewiew </th>
+		<th>Delete review</th>
 	</tr>
 	
 	<?php 
@@ -122,44 +123,47 @@ if (isset($_POST['submit'])) {
 				<td><?php echo $userName; ?></td>
 				<td><?php echo $pullReviewData['review']; ?></td>
 				<form action="bookComment.php?userID=<?php echo $userIdNotLoggedIn ?>" method="POST">
-					<td align="center"><a href="bookComment.php?userID=<?php echo $userIdNotLoggedIn ?>">  <button type="submit" name="like" >Like</button> </a></td>
-					<td align="center"><a href="bookComment.php?userID=<?php echo $userIdNotLoggedIn ?>"><button type="submit" name="dislike" >Dislike</button></td>
+					<td align="center">  <button type="submit" name="like" >Like</button> </td>
+					<td align="center">  <button type="submit" name="dislike" >Dislike</button></td>
+						</form>
 
-					</form>
-				</tr>
+						<form  action="bookComment.php?reviewID=<?php echo $pullReviewData['id'] ?>" method="POST">
+							<td align="center">	<button type="submit" name="Delete" >Delete</button></td>
+						</form>
+					</tr>
 
-			<?php }} ?>
-		</table>
-		Add review:
-		<br>
-		<form action="bookInfo.php?ISBN=<?php echo $ISBN ?>" title="Review" enctype="multipart/form-data" method="POST">
+				<?php }} ?>
+			</table>
+			Add review:
+			<br>
+			<form action="bookInfo.php?ISBN=<?php echo $ISBN ?>" title="Review" enctype="multipart/form-data" method="POST">
 
-			<textarea rows="10" cols="50" name="review" style="overflow: auto;" required></textarea>
-			<label for="Scores" align="right" >Give a point for the book:</label>
+				<textarea rows="10" cols="50" name="review" style="overflow: auto;" required></textarea>
+				<label for="Scores" align="right" >Give a point for the book:</label>
 
-			<select name="Score" >
-				<option  value="-">-</option>
-				<option  value="0">0</option>
-				<option  value="1">1</option>
-				<option  value="2">2</option>
-				<option  value="3">3</option>
-				<option  value="4">4</option>
-				<option  value="5">5</option>
-				<option  value="6">6</option>
-				<option  value="7">7</option>
-				<option  value="8">8</option>
-				<option  value="9">9</option>
-				<option  value="10">10</option>
-			</select>
-			<div>
-				<input type="submit" name="submit" value="Add" />
-				<input type="reset" value="Clear" />
-			</div>
-		</form>
-		
-
-
-	</body>
+				<select name="Score" >
+					<option  value="-">-</option>
+					<option  value="0">0</option>
+					<option  value="1">1</option>
+					<option  value="2">2</option>
+					<option  value="3">3</option>
+					<option  value="4">4</option>
+					<option  value="5">5</option>
+					<option  value="6">6</option>
+					<option  value="7">7</option>
+					<option  value="8">8</option>
+					<option  value="9">9</option>
+					<option  value="10">10</option>
+				</select>
+				<div>
+					<input type="submit" name="submit" value="Add" />
+					<input type="reset" value="Clear" />
+				</div>
+			</form>
 
 
-	</html>
+
+		</body>
+
+
+		</html>
