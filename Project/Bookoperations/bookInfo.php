@@ -43,10 +43,12 @@ if (isset($_POST['submit'])) {
 				$review=$_POST['review'];
 				$choosenPoint=$_POST['Score'];
 				$bookScore+=$choosenPoint;
-				$sql="INSERT INTO reviews (review, bookID, userID) VALUES ('$review','$ISBN','$userID')";
+				$sql="INSERT INTO reviews (review, bookID, userID,givenScore) VALUES ('$review','$ISBN','$userID',$choosenPoint)";
 				mysqli_query($connect,$sql);
 				$sqlBookScore="UPDATE book SET score='$bookScore' WHERE ISBN='$ISBN'";
 				mysqli_query($connect,$sqlBookScore);
+               
+
 
 			}
 		} 
@@ -116,7 +118,7 @@ tr,th,td{
 
 <section>
 	<nav>
-<img src="<?php echo "../Admin/".$pullData['image']; ?>"> </img>
+<img src="<?php echo "../Admin/".$pullData['image']; ?>" style="width:150px;height:200px"> </img>
 
 <h3 style="font-family: monospace">Book Informations: </h3>
 	
