@@ -49,19 +49,55 @@ if (isset($_POST["submit"]))
 ?>
 
 <!DOCTYPE html>
+<head>
+<header>Sign Up</header>
+<title>Sign Up</title>
+</head>
+<body style="background-color: lavender">
+<style>
+header{
+padding: 20px;
+background-color:slateblue;
+text-align: center;
+font-family:monospace;
+font-size: 25px;
+color: black;
+} 
+input[type=text],input[type=email],input[type=password],input[type=submit]{
+width:40%;
+margin-left: 30%;
+margin-right: 30%;
+margin-top: 50px;
+height:30px;
+border: 1px solid slateblue;
+border-radius: 5px;
+}
+input[type=file]{
+    width:40%;
+margin-left: 30%;
+margin-right: 30%;
+margin-top: 50px;
+height:30px;
+border-radius: 5px;
+}
+
+
+</style>
+<br>
     <main>
         <div class ="wrapper-main">
             <section class ="section-default">
-                <h1>Sign up</h1>
+               
                     <form enctype="multipart/form-data" action="../login/login.php" method="post">
-                        <input type="text" name="username" placeholder="Username" required />
-                        <input type="email" name="email" placeholder="E-mail" required />
-                        <input type="password" name="pw" placeholder="Password" required />
-                        <input type="password" name="pw_repeat" placeholder="Repeat Password" required />
-                        <input type="file" name='photo' accept="image/*" required />
+                        <input type="text" name="username" placeholder="Username" required /><br>
+                        <input type="email" name="email" placeholder="E-mail" required /> <br>
+                        <input type="password" name="pw" placeholder="Password" required /><br>
+                        <input type="password" name="pw_repeat" placeholder="Repeat Password" required /><br>
+                        <input type="file" name='photo' accept="image/*" required /><br>
                         <input type="submit" name="submit" value = "Submit">
                     </form>
             </section>
         </div>
     </main>
+    </body>
 </html>    

@@ -47,16 +47,44 @@ else
 ?>
 
 <!DOCTYPE html>
+<head>
+<header>Admin Login</header>
+<title>Admin Login</title>
+</head>
+<body style="background-color: lavender">
+<style>
+header{
+padding: 20px;
+background-color:slateblue;
+text-align: center;
+font-family:monospace;
+font-size: 25px;
+color: black;
+} 
+input[type=text],input[type=password],input[type=submit]{
+width:40%;
+margin-left: 30%;
+margin-right: 30%;
+margin-top:70px;
+height:30px;
+border: 1px solid slateblue;
+border-radius: 5px;
+}
+
+
+
+
+</style>
     <main>
         <div class ="wrapper-main">
             <section class ="section-default">
-                <h1>Login</h1>
                     <form enctype="multipart/form-data" action="adminLogin.php" method="post">
-                        <input type="text" name="username" placeholder="Username" required />
-                        <input type="password" name="pw" placeholder="Password" required />
-                        <input type="submit" name="submit" value = "Submit">
+                        <input type="text" name="username" placeholder="Username" required style="font-family: monospace" />
+                        <input type="password" name="pw" placeholder="Password" required style="font-family: monospace" />
+                        <input type="submit" name="submit" value = "Submit" style="font-family: monospace">
                     </form>
             </section>
         </div>
     </main>
+    </body>
 </html>    
