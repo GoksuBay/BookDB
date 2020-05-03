@@ -78,10 +78,10 @@ $result=mysqli_query($connect,$query) or die(mysqli_error('error'));
 while($row3=mysqli_fetch_array($result)){
 $score= $row3['AVG(score)'];
 ?>
-<p>Score: <?php echo $row3['AVG(score)']; ?></p>
+<p>Score: <?php echo $score; ?></p>
 <?php
 }
-$query2="INSERT INTO author(score) VALUES ($score) WHERE authorID='$id'";
+$query2="INSERT INTO author(score) VALUES '$score' WHERE id='$id'";
 mysqli_query($connect,$query2);
 
 ?>

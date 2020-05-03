@@ -15,7 +15,7 @@ while($pullCate=mysqli_fetch_assoc($categoriesResult)){
   <li style="list-style-type:none">
   <img src=  "<?php echo '../Admin/'  .$pullCate['photo'];  ?> " style="width:200px;height:200px;"> </img> 
 
-<a href ="categories1.php?id=<?php echo $pullCate['id']?>"  > <li style="list-style-type: none"><?php print_r($pullCate['categoryName']); } ?></li> 
+<a href ="categoryInfo.php?id=<?php echo $pullCate['id']?>"  > <li style="list-style-type: none"><?php print_r($pullCate['categoryName']); } ?></li> 
 </li> 
 
 
