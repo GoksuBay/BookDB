@@ -2,7 +2,9 @@
 session_start();
 
 require "../includes/dbconnect.php";
-
+if(isset($_SESSION['adminid']) == NULL)
+    header("Location: ../noPermission.php");
+    
 $id = intval($_GET['id']);
 $result=mysqli_query($connect,"SELECT * FROM author WHERE id='$id'");
 $rows=mysqli_fetch_assoc($result);

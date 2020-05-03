@@ -1,4 +1,6 @@
-<?php session_start(); ?>
+<?php session_start(); 
+if(isset($_SESSION['adminid']) == NULL)
+header("Location: ../noPermission.php");?>
 <!DOCTYPE html>
 <html lang="en">
 <head>

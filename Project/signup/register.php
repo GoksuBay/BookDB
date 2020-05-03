@@ -26,9 +26,9 @@ if (isset($_POST["submit"]))
             {
 
                 
-                if(move_uploaded_file($_FILES['photo']['tmp_name'], '../Admin/images/users/'.$username.'_'.$profilePhoto))
+                if(move_uploaded_file($_FILES['photo']['tmp_name'], '../Admin/images/user'.$username.'_'.$profilePhoto))
                 {
-                    $photoPath = '../Admin/images/users/'.$username.'_'.$profilePhoto;
+                    $photoPath = 'images/users/'.$username.'_'.$profilePhoto;
                     $sql = "INSERT INTO users (username, email, pw, photo) VALUES ('$username', '$email', '$password', '$photoPath')";
                     mysqli_query($connect, $sql);
                 }
@@ -53,7 +53,7 @@ if (isset($_POST["submit"]))
         <div class ="wrapper-main">
             <section class ="section-default">
                 <h1>Sign up</h1>
-                    <form enctype="multipart/form-data" action="register.php" method="post">
+                    <form enctype="multipart/form-data" action="../login/login.php" method="post">
                         <input type="text" name="username" placeholder="Username" required />
                         <input type="email" name="email" placeholder="E-mail" required />
                         <input type="password" name="pw" placeholder="Password" required />

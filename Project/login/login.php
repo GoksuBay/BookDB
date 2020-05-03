@@ -10,6 +10,28 @@ if (isset($_POST['submit']))
     $username = $_POST['username'];
     $password = $_POST['pw'];
 
+    $bancheck = "SELECT * FROM bannedusers WHERE username = ? OR email = ?";
+    $banstmt = mysqli_stmt_init($connect);
+    if(mysqli_stmt_prepare($banstmt, $bancheck))
+    {
+        mysqli_stmt_bind_param($banstmt, "ss", $username, $username);
+        mysqli_stmt_execute($banstmt);
+        $banresult = mysqli_stmt_get_result($banstmt);
+        if($bannedrow = mysqli_fetch_assoc($banresult))
+        {
+            if(md5($password) !== $bannedrow['pw'])
+            {
+                echo "Wrong PW";
+            }
+            else if(md5($password) === $bannedrow['pw'])
+            {
+                header("Location: ../banned.php?id=".$bannedrow['id']);
+            }
+        }
+
+    }
+    
+    
     $sql = "SELECT * FROM users WHERE username = ? OR email = ?";
     $stmt = mysqli_stmt_init($connect);
 
@@ -42,6 +64,7 @@ if (isset($_POST['submit']))
 
 }
 }
+
 else
     header("Location: ../errorLogin.php");
 

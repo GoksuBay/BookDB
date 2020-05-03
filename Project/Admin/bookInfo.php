@@ -1,4 +1,7 @@
-<?php require_once '../includes/dbconnect.php'; ?>
+<?php session_start();
+require_once '../includes/dbconnect.php'; 
+if(isset($_SESSION['adminid']) == NULL)
+    header("Location: ../noPermission.php");?>
 
 <?php 
 $ISBN=intval($_GET['ISBN']);
@@ -18,6 +21,15 @@ $bookCategorySql="SELECT categoryName FROM category WHERE id='$categoryID'";
 $bookCategoryResult=mysqli_query($connect,$bookCategorySql);
 $pullCategoryData=mysqli_fetch_assoc($bookCategoryResult);
 
+if(isset($_POST['submit']))
+{
+	$ISBND = $_POST['ISBN'];
+	$summary = $_POST['summary'];
+	$name = $_POST['name'];
+
+	$sql = "UPDATE book SET ISBN = '$ISBND', summary= '$summary', name= '$name' WHERE ISBN='$ISBN'";
+	mysqli_query($connect, $sql);
+}
 
 ?>
 
@@ -28,21 +40,28 @@ $pullCategoryData=mysqli_fetch_assoc($bookCategoryResult);
 
 <body>
 </br>	
-<img src="<?php echo "../Admin/".$pullData['image']; ?>"> <h1><input type="text" name="name" value= <?php echo $pullData['name']?> required></h1></img>
+<img src="<?php echo "../Admin/".$pullData['image']; ?>"></img>
 
 <hr color="black" /> 
-<p><h1> Summary: <br> <input type="text" name="summary" value= <?php echo $pullData['summary']?> </h1> </p>            
+<p><h1> Summary: <br>  </h1> </p>            
 <hr color="black" />
 <h1>
 	<ul>
 		<!-- List for book informations  -->
 		<a href="">              <li> Author:<?php echo $pullAuthorData['name']; ?> </li>         </a>
-		<li> ISBN:<input type="text" name="ISBN" value= <?php echo $pullData['ISBN']?> required> </li>
+		
 		
 		<li> Score:   <?php echo $pullData['score']; ?></li>
 		<li> Category: <?php echo $pullCategoryData['categoryName']; ?>  </li>
 		<li> Release Date:  <?php echo $pullData['releaseDate']; ?></li>
-		<li> Comment area: </li>
+
+		<form enctype="multipart/form-data" action="bookInfo.php?ISBN=<?php echo $ISBN?>" method="post">
+		<li> Name:<input type="text" name="name" value= <?php echo $pullData['name']?> required></li>
+		<li> ISBN:<input type="number" value= "<?php echo $pullData['ISBN']?>" name="ISBN"> </li>
+		<li> Summary<textarea rows="4" cols="50" name ="summary" required placeholder="Summary"> <?php echo $pullData['summary']?></textarea> </li>
+			<input type="submit" name="submit" value = "Submit">
+                        
+        </form>
 
 	</h1>
 </ul>

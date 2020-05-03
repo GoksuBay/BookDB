@@ -2,7 +2,8 @@
 session_start();
 $_SESSION['message']= '';
 require "../includes/dbconnect.php";
-
+if(isset($_SESSION['adminid']) == NULL)
+    header("Location: ../noPermission.php");
 if (isset($_POST["submit"]))
 {
     

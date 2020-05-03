@@ -12,9 +12,9 @@ if(isset($_SESSION['id']) == NULL)
         if(mysqli_num_rows($result) > 0)
         {
             $token = rand(1000,10000);
-            $mail->SetFrom("noreply@brdb", "Forgotten Password"); // Mail adresi
+            $mail->SetFrom("noreply@brdb", "BRDB Support"); // Mail adresi
             $mail->AddAddress($email); // Gönderilecek kişi
-            $mail->Subject = "BRDB Support";
+            $mail->Subject = "Forgotten Password";
             $mail->Body = "Your token is: ".$token;
             $mail->Send();
             $token = md5($token);

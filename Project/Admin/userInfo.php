@@ -1,4 +1,8 @@
-<?php require '../includes/dbconnect.php'; 
+<?php 
+session_start();
+require '../includes/dbconnect.php'; 
+if(isset($_SESSION['adminid']) == NULL)
+    header("Location: ../noPermission.php");
 $id = intval($_GET['id']);
 ?>
 

@@ -1,6 +1,6 @@
 <?php
 session_start();
-if(isset($_SESSION['id']) == NULL)
+if(isset($_SESSION['id']) == NULL || isset($_SESSION['adminid']) == NULL )
 {
 
 if (isset($_POST['submit']))
@@ -27,7 +27,7 @@ if (isset($_POST['submit']))
             else if(md5($password) === $row['password'])
             {
                 $_SESSION['username'] = $row['username'];
-                $_SESSION['id'] = $row['id'];
+                $_SESSION['adminid'] = $row['id'];
                 header("Location ../home.php");
             }
         }

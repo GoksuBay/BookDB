@@ -9,7 +9,10 @@
 </head>
 
 <?php 
+session_start();
 require '../includes/dbconnect.php';
+if(isset($_SESSION['adminid']) == NULL)
+    header("Location: ../noPermission.php");;
 
 if(isset($_POST["delete"]))
 {
