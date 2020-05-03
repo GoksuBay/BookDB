@@ -1,23 +1,38 @@
-<?php session_start(); ?>
+<?php session_start();
+require "../includes/dbconnect.php";
+
+$authorlistSql="SELECT * FROM author";
+$authorlistResult=mysqli_query($connect,$authorlistSql); ?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<title>Author1</title>
+<title>Authors</title>
 <meta charset="utf-8">
 <header>Authors</header>
 </head>
-<body>
+<body style="background-color: lavender">
 
 <style>
 
 header{
 padding: 20px;
-background-color:coral;
+background-color:slateblue;
 text-align: center;
-font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif ;
+font-family:monospace;
 font-size: 25px;
-
+color: black;
 } 
+.box {
+margin-top: 30px;
+margin-left: 20px;
+margin-right: 20px;
+padding-block: 25px;
+float: left;
+height: auto;
+
+}
+
 
 
 </style>
@@ -27,12 +42,10 @@ font-size: 25px;
 <?php
 
 
-require "../includes/dbconnect.php";
 
-$authorlistSql="SELECT * FROM author";
-$authorlistResult=mysqli_query($connect,$authorlistSql);
 
 while($pullData=mysqli_fetch_assoc($authorlistResult)){
+    echo '<div class="box">';
     ?>
 
     
@@ -40,8 +53,8 @@ while($pullData=mysqli_fetch_assoc($authorlistResult)){
 <nav>
 
 
-<li style="list-style-type: none"><img src=  "<?php echo '../Admin/'  .$pullData['photo'];  ?> " style="width:100px;height:100px;"> </img> </li> 
-<li style="list-style-type: none"> <a href="authorInfo.php?id=<?php echo $pullData['id']?>"><?php  print_r($pullData['name']);?></a> </li>
+<li style="list-style-type: none"><img src=  "<?php echo '../Admin/'  .$pullData['photo'];  ?> " style="width:150px;height:150px;"> </img> </li> 
+<li style="list-style-type: none"> <a href="authorInfo.php?id=<?php echo $pullData['id']?>"><p style="font-family: monospace"><?php  print_r($pullData['name']);?></a></p> </li>
 
 </nav>
-<?php   }  ?>
+<?php echo '</div>'; } ?>

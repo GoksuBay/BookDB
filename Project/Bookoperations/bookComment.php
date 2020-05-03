@@ -57,7 +57,7 @@ if (isset($_POST['dislike'])) {
 <head>
 	<title></title>
 </head>
-<body>
+<body style="background-color: lavender">
 	<a href="bookList.php">Click here to go book lists page...</a>
 </body>
 </html>

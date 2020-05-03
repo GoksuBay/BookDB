@@ -71,35 +71,98 @@ if (isset($_POST['submit'])) {
 
 <html>
 <head>
-	<title>Book Informations</title>
+	<title><?php echo $pullData['name']; ?></title>
+	<header><?php echo $pullData['name']; ?></header>
 </head>
 
-<body>
-</br>	
-<img src="<?php echo "../Admin/".$pullData['image']; ?>"> <h1><?php echo $pullData['name']; ?></h1></img>
+<body style="background-color: lavender">
+<style>
+article{
+float: right;
+padding: 20px;
+padding-top: 30px;
+text-align: left;
+font-size: 18px;
 
-<hr color="black" /> 
-<p><h1> Summary: </h1> <h3> <?php echo $pullData['summary']; ?>  </h3> </p>            
-<hr color="black" />
-<h1>Book Informations: <br>
-	<ul>
+
+}
+header{
+padding: 20px;
+background-color:slateblue;
+text-align: center;
+font-family:monospace;
+font-size: 25px;
+color: black;
+} 
+
+nav{
+float: left;
+padding: 20px;
+text-align: center;
+font-size: 20px;
+width:300px;
+height:400px;
+}
+section {
+  display: -webkit-flex;
+  display: flex;
+}
+tr,th,td{
+	font-family: monospace;
+}
+</style>
+
+
+
+<section>
+	<nav>
+<img src="<?php echo "../Admin/".$pullData['image']; ?>"> </img>
+
+<h3 style="font-family: monospace">Book Informations: </h3>
+	
+<li style="list-style-type: none">
 		<!-- List for book informations  -->
-		<a href="../Author/authors1.php?id=<?php echo $pullData['authorID'] ?>">  <li> Author:<?php echo $pullAuthorData['name']; ?> </li>         </a>
-		<li> ISBN:<?php echo $pullData['ISBN']; ?> </li>
-		<li> Score:   <?php echo $pullData['score']; ?></li>
-		<a href="../Categories/categories1.php?id=<?php echo $pullData['categoryID'] ?>"> <li> Category: <?php echo $pullCategoryData['categoryName']; ?>  </li></a> 
-		<li> Release Date:  <?php echo $pullData['releaseDate']; ?></li>
-		<hr color="black" /> 
-	</h1>
-</ul>
-<h1>REVIEWS: </h1>
+		<a href="../Author/authorInfo.php?id=<?php echo $pullData['authorID'] ?>"> <p style="font-family: monospace">  Author:<?php echo $pullAuthorData['name']; ?> </p>        </a>
+		<p style="font-family:monospace" > ISBN:<?php echo $pullData['ISBN']; ?></p> 
+		<p style="font-family: monospace"> Score:   <?php echo $pullData['score']; ?></p>
+		<a href="../Categories/categoryInfo.php?id=<?php echo $pullData['categoryID'] ?>"> <p style="font-family: monospace"> Category: <?php echo $pullCategoryData['categoryName']; ?>  </p></a> 
+		<p style="font-family: monospace"> Release Date:  <?php echo $pullData['releaseDate']; ?></p>
+</li>
+
+
+</nav>
+
+<article>
+
+<h3 style="font-family: monospace"> Summary: </h3> 
+<p style="font-family: monospace"><?php echo $pullData['summary']; ?> 
+</p>
+ </article>      
+</section>
+
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+ <h2 style="font-family: monospace">REVIEWS: </h2>
+<footer>
+
 <table style="width: 100%" border="1">
 	<tr>
 		<th>Username </th>
 		<th>Rewiew </th>
-		<th>Like rewiew </th>
-		<th>Dislike rewiew </th>
-		<th>Delete review</th>
+		<th>Like Rewiew </th>
+		<th>Dislike Rewiew </th>
+		<th>Delete Review</th>
 	</tr>
 	
 	<?php 
@@ -123,23 +186,23 @@ if (isset($_POST['submit'])) {
 				<td><?php echo $userName; ?></td>
 				<td><?php echo $pullReviewData['review']; ?></td>
 				<form action="bookComment.php?userID=<?php echo $userIdNotLoggedIn ?>" method="POST">
-					<td align="center">  <button type="submit" name="like" >Like</button> </td>
-					<td align="center">  <button type="submit" name="dislike" >Dislike</button></td>
+					<td align="center" style="font-family: monospace">  <button type="submit" name="like" >Like</button> </td>
+					<td align="center" style="font-family: monospace">  <button type="submit" name="dislike" >Dislike</button></td>
 						</form>
 
 						<form  action="bookComment.php?reviewID=<?php echo $pullReviewData['id'] ?>" method="POST">
-							<td align="center">	<button type="submit" name="Delete" >Delete</button></td>
+							<td align="center" style="font-family: monospace">	<button type="submit" name="Delete" >Delete</button></td>
 						</form>
 					</tr>
 
 				<?php }} ?>
-			</table>
-			Add review:
+			</table >
+			<p style="font-family: monospace">Add Review:</p>
 			<br>
 			<form action="bookInfo.php?ISBN=<?php echo $ISBN ?>" title="Review" enctype="multipart/form-data" method="POST">
 
 				<textarea rows="10" cols="50" name="review" style="overflow: auto;" required></textarea>
-				<label for="Scores" align="right" >Give a point for the book:</label>
+				<label for="Scores" align="right" style="font-family: monospace" >Give a point for the book:</label>
 
 				<select name="Score" >
 					<option  value="-">-</option>
@@ -161,7 +224,7 @@ if (isset($_POST['submit'])) {
 				</div>
 			</form>
 
-
+		</footer>
 
 		</body>
 
