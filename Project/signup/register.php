@@ -23,9 +23,7 @@ if (isset($_POST["submit"]))
             $res = mysqli_query($connect, $check);
 
             if(mysqli_num_rows($res) < 1)
-            {
-
-                
+            {   
                 if(move_uploaded_file($_FILES['photo']['tmp_name'], '../Admin/images/user'.$username.'_'.$profilePhoto))
                 {
                     $photoPath = 'images/users/'.$username.'_'.$profilePhoto;
@@ -88,7 +86,7 @@ border-radius: 5px;
         <div class ="wrapper-main">
             <section class ="section-default">
                
-                    <form enctype="multipart/form-data" action="../login/login.php" method="post">
+                    <form enctype="multipart/form-data" action="signup.php" method="post">
                         <input type="text" name="username" placeholder="Username" required /><br>
                         <input type="email" name="email" placeholder="E-mail" required /> <br>
                         <input type="password" name="pw" placeholder="Password" required /><br>

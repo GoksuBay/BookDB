@@ -9,7 +9,7 @@ session_start(); ?>
 <!DOCTYPE html>
 
 <form action="search.php" method="post">
-<input type="text" name="search">
+<input type="text" name="search" required>
 <input type="submit" name="submit" value="Search">
 </form>
 

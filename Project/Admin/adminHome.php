@@ -1,6 +1,6 @@
 <?php
 session_start();
-if(isset($_SESSION['adminid']) != NULL)
+if(isset($_SESSION['adminid']) == NULL)
     header("Location: ../noPermission.php");
 ?>
 
