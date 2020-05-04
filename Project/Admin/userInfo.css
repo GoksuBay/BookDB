@@ -1,0 +1,51 @@
+body{
+	background-color: #ced6e0;
+}
+h1{
+	text-align: center;
+	color: #ff6600;
+	font-family: verdana;
+	font-size: 45px;
+	text-shadow: 1px 1px #ffaf40;
+	padding: 30px;
+	padding-top: 50px;
+}
+
+h2{
+	color: #ff6600;
+	position: relative;
+	left: 650px;
+	font-family: "Lucida Console", Courier, monospace;
+}
+input[type=text], input[type=email]{
+	width: 550px;
+	height: 30px;
+	margin-bottom: 30px;
+	position: relative;
+	left: 650px;
+	border-radius: 20px;
+	border-color: #ff6600;
+	border-style: groove;
+	padding: 20px;
+	font-size: 18px;
+	font-family: "Lucida Console", Courier, monospace;
+	background-color: #f1f2f6;
+}
+
+input[type=submit]{
+	padding: 5px;
+	margin-right: 15px;
+	width: 100px;
+	height: 45px;
+	font-family: verdana;
+	font-size:15px;
+	border-radius: 20px;
+	border-style: groove;
+	border-width: 2px;
+	background-color: #2f3542;
+	border-color: #2f3542;
+	color: white;
+	position: relative;
+	left: 1030px;
+	top: 30px;
+}
