@@ -28,24 +28,28 @@ if (isset($_POST['submit']))
 
 <html>
 <head>
-	<h1><b> Users</b></h1>
+	<h1> Users</h1>
+    <title>User Info</title>
+    <link rel="stylesheet" type="text/css" href="userInfo.css">
+    <meta charset="utf-8">
+
 </head>
 
 <body>
 </br>	
 <img src="<?php echo $rows['photo']; ?>"></img>
-<h1>
- <ul>
+<nav>
+ 
   <!-- List for book informations  -->
-                        <form enctype="multipart/form-data" action="userInfo.php?id=<?php echo $id?>" method="post">   
-                        <li> Username:<input type="text" name="username" value= <?php echo $rows['username']?> required> </input> </li>         </a>
-                           <li> email:<input type="email" name="email" value= <?php echo $rows['email']?> required> </input> </li>         </a>
-                           <li> score:<?php echo $rows['score']?> </input> </li>         </a>
-                           <li> Comment area: </li>
-                            <input type="submit" name="submit" value="Submit">
-                        </form>
-</h1>
-</ul>
+            <form enctype="multipart/form-data" action="userInfo.php?id=<?php echo $id?>" method="post">   
+                <div><h2> Username: </h2><input type="text" name="username" value= <?php echo $rows['username']?> required> </input></div></a><br>
+                <div><h2> E-mail: </h2><input type="email" name="email" value= <?php echo $rows['email']?> required> </input></div></a><br>
+                <div> <h2>Score: </h2><?php echo $rows['score']?> </input> </div><br></a>
+                <div><h2> Comment Area: </h2> </div>
+                <div><input type="submit" name="submit" value="Submit"></div><br>
+            </form>
+</nav>
+
 </body>
 
 

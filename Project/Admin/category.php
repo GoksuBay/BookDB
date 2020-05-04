@@ -37,16 +37,24 @@ if (isset($_POST["submit"]))
 ?>
 
 <!DOCTYPE html>
+<html>
+<head>
+    <title>Category</title>
+    <link rel="stylesheet" type="text/css" href="category.css">
+    <meta charset="utf-8">
+</head>
+<body>
     <main>
         <div class ="wrapper-main">
             <section class ="section-default">
                 <h1>Add Category</h1>
                     <form enctype="multipart/form-data" action="category.php" method="post">
-                        <input type="text" name="name" placeholder="CategoryName" required />
-                        <input type="file" name='photo' accept="image/*" required />
+                        <input type="text" name="name" placeholder="CategoryName" required /><br>
+                        <input type="file" name='photo' accept="image/*" required /><br>
                         <input type="submit" name="submit" value = "Submit">
                     </form>
             </section>
         </div>
     </main>
-</html>    
+</body>
+</html>
