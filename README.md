@@ -1,6 +1,6 @@
 # BookDB
 
-##This project is made for the Database Course of our University. This project includes:
+## This project is made for the Database Course of our University. This project includes:
 * PHP
 * HTML-CSS
 * MYSQL
