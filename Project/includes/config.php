@@ -11,7 +11,7 @@ $mail->IsHTML(true);
 $mail->SetLanguage("tr", "phpmailer/language");
 $mail->CharSet  ="utf-8";
 
-$mail->Username = "goksu1.9.9.8@gmail.com"; // Mail adresi
-$mail->Password = "5058870628NnGfB"; // Parola
+$mail->Username = "youremail@address.com";
+$mail->Password = "your-password";
 
 ?>
