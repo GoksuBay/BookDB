@@ -72,12 +72,6 @@ CREATE TABLE `author` (
 -- Tablo döküm verisi `author`
 --
 
-INSERT INTO `author` (`id`, `name`, `score`, `about`, `dateofBirth`, `photo`) VALUES
-(10, 'J.K Rowling', 0, 'J. K. Rowling, is a British author, film producer, television producer, screenwriter, and philanthropist. She is best known for writing the Harry Potter fantasy series, which has won multiple awards and sold more than 500 million copies,[2][3] becoming the best-selling book series in history.[4] The books are the basis of a popular film series, over which Rowling had overall approval on the scripts[5] and was a producer on the final films.[6] She also writes crime fiction under the name Robert Galbraith.', '1965-07-31', 'images/author/J.K Rowling_5e8b2c93b57f1517ac4ab954.jpg'),
-(12, 'Frank Herbert', 0, 'Franklin Patrick Herbert Jr. (October 8, 1920 – February 11, 1986) was an American science-fiction author best known for the 1965 novel Dune and its five sequels. Though he became famous for his novels, he also wrote short stories and worked as a newspaper journalist, photographer, book reviewer, ecological consultant, and lecturer.', '1920-10-08', 'images/author/Frank Herbert_Frank_Herbert_-_1984.jpg'),
-(14, 'Andrzej Sapkowski', 0, 'Andrzej Sapkowski is a Polish fantasy writer. He is best known for his book series, The Witcher. His books have been translated into over 20 languages', '1948-06-21', 'images/author/Andrzej Sapkowski_Sapkowski.jpg'),
-(15, 'John Flanagan', 0, 'John Anthony Flanagan is an Australian fantasy author best known for his medieval fantasy series, the Rangers Apprentice, and its sister series, the Brotherband Chronicles. Some of his other works include his Storm Peak duology, as well as the adult novel The Grey Raider.', '1944-05-22', 'images/author/John Flanagan_john-flanagan-profil-P3.jpg');
-
 -- --------------------------------------------------------
 
 --
@@ -110,10 +104,6 @@ CREATE TABLE `bannedusers` (
 --
 -- Tablo döküm verisi `bannedusers`
 --
-
-INSERT INTO `bannedusers` (`id`, `username`, `email`, `pw`, `reason`) VALUES
-(45, 'goksubayram', 'gbay@gmail.com', '202cb962ac59075b964b07152d234b70', 'Dont like you'),
-(49, 'testuser1', 'testm@gmail.com', '202cb962ac59075b964b07152d234b70', 'Harry potter is better');
 
 -- --------------------------------------------------------
 
@@ -150,12 +140,6 @@ CREATE TABLE `book` (
 -- Tablo döküm verisi `book`
 --
 
-INSERT INTO `book` (`ISBN`, `name`, `authorID`, `releaseDate`, `score`, `summary`, `image`, `categoryID`) VALUES
-(747538492, 'Harry Potter and the Chamber of Secrets', 10, '1998-07-02', 0, 'Harry Potter and the Chamber of Secrets is a fantasy novel written by British author J. K. Rowling and the second novel in the Harry Potter series. The plot follows Harrys second year at Hogwarts School of Witchcraft and Wizardry, during which a series of messages on the walls of the schools corridors warn that the Chamber of Secrets has been opened and that the heir of Slytherin would kill all pupils who do not come from all-magical families. These threats are found after attacks that leave residents of the school petrified. Throughout the year, Harry and his friends Ron and Hermione investigate the attacks.', 'images/book/Harry Potter and the Chamber of Secrets_harry-potter-and-the-chamber-of-secrets-5.jpg', 19),
-(842502706, 'Dune', 12, '1965-08-01', 3, 'Feature adaptation of Frank Herbert\'s science fiction novel, about the son of a noble family entrusted with the protection of the most valuable asset and most vital element in the galaxy.', 'images/book/Dune_0000000270472-1.jpg', 18),
-(978014240, 'Rangers Apprentice: The Ruins of Gorlan', 15, '2004-11-01', 0, 'test', 'images/book/RA.jpg', 17),
-(978057507, 'The Witcher: The Last Wish', 14, '2007-06-21', 0, 'The Last Wish is the first book in Andrzej Sapkowskis The Witcher series in terms of story chronology, although the original Polish edition was published in 1993, after Sword of Destiny.', 'images/book/TWLS.jpg', 19),
-(2147483647, 'Harry Potter and the Philosophers Stone', 10, '26-06-1997', 19, 'Harry Potter and the Philosopher\'s Stone is a fantasy novel written by British author J. K. Rowling. The first novel in the Harry Potter series and Rowling\'s debut novel, it follows Harry Potter, a young wizard who discovers his magical heritage on his eleventh birthday, when he receives a letter of acceptance to Hogwarts School of Witchcraft and Wizardry. Harry makes close friends and a few enemies during his first year at the school, and with the help of his friends, Harry faces an attempted comeback by the dark wizard Lord Voldemort, who killed Harry\'s parents, but failed to kill Harry when he was just 15 months old.', 'images/book/Harry Potter_MV5BNjQ3NWNlNmQtMTE5ZS00MDdmLTlkZjUtZTBlM2UxMGFiMTU3XkEyXkFqcGdeQXVyNjUwNzk3NDc@._V1_UY1200_CR90,0,630,1200_AL_.jpg', 19);
 
 -- --------------------------------------------------------
 
@@ -190,18 +174,6 @@ CREATE TABLE `category` (
 -- Tablo döküm verisi `category`
 --
 
-INSERT INTO `category` (`id`, `categoryName`, `photo`) VALUES
-(17, 'Adventure', 'images/categoryAdventure_download20200506170900.png'),
-(18, 'Sci-Fi', 'images/categorySci-Fi_science-fiction-3212212_960_720.jpg'),
-(19, 'Fantasy', 'images/categoryFantasy_Dark_Fantasy_Romane.jpg'),
-(20, 'Romance', 'images/categoryRomance_yofo10139173.jpg'),
-(21, 'Horror', 'images/categoryHorror_scream-horror.jpg.482x490_q71_crop-smart.jpg'),
-(22, 'Dedective', 'images/categoryDedective_indir.jpg'),
-(23, 'Biography', 'images/categoryBiography_unnamed.jpg'),
-(24, 'Comic Book', 'images/categoryComic Book_cotton-fabric-marvel-comic-book-main-e106751-25_1.jpg'),
-(25, 'Other', 'images/categoryOther_other-other.jpg'),
-(27, 'Thriller', 'images/categoryThriller_thriller.jpg');
-
 -- --------------------------------------------------------
 
 --
@@ -229,10 +201,6 @@ CREATE TABLE `forgottenpassword` (
 --
 -- Tablo döküm verisi `forgottenpassword`
 --
-
-INSERT INTO `forgottenpassword` (`id`, `token`, `email`) VALUES
-(8, 'a24bdc3e59a4c624eee8318a51bb55b9', 'gksbayram@gmail.com'),
-(11, '9d8df73a3cfbf3c5b47bc9b50f214aff', 'goksu.1.9.9.8@gmail.com');
 
 -- --------------------------------------------------------
 
@@ -303,13 +271,6 @@ CREATE TABLE `users` (
 --
 -- Tablo döküm verisi `users`
 --
-
-INSERT INTO `users` (`id`, `reviewID`, `score`, `photo`, `username`, `email`, `pw`) VALUES
-(46, NULL, 10, 'images/users/vito_indir (1).jpg', 'vito', 'fatih_ralarak@hotmail.com', '202cb962ac59075b964b07152d234b70'),
-(47, NULL, 0, 'images/users/iik_Screenshot_3.png', 'iik', 'iik@gmail.com', '202cb962ac59075b964b07152d234b70'),
-(48, NULL, 0, 'images/users/balik_Screenshot_47.png', 'balik', 'kbalik@gmail.com', '202cb962ac59075b964b07152d234b70'),
-(50, NULL, 0, 'images/users/testusers_photo-1511367461989-f85a21fda167.jpg', 'testusers', 'gksbayram@gmail.com', 'fae0b27c451c728867a567e8c1bb4e53'),
-(51, NULL, 0, 'images/users/testu_photo-1511367461989-f85a21fda167.jpg', 'testu', 'goksu.1.9.9.8@gmail.com', 'fae0b27c451c728867a567e8c1bb4e53');
 
 -- --------------------------------------------------------
 
@@ -466,38 +427,6 @@ ALTER TABLE `users`
 --
 -- Tablo için AUTO_INCREMENT değeri `admin`
 --
-ALTER TABLE `admin`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
-
---
--- Tablo için AUTO_INCREMENT değeri `author`
---
-ALTER TABLE `author`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
-
---
--- Tablo için AUTO_INCREMENT değeri `category`
---
-ALTER TABLE `category`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=28;
-
---
--- Tablo için AUTO_INCREMENT değeri `forgottenpassword`
---
-ALTER TABLE `forgottenpassword`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
-
---
--- Tablo için AUTO_INCREMENT değeri `reviews`
---
-ALTER TABLE `reviews`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
-
---
--- Tablo için AUTO_INCREMENT değeri `users`
---
-ALTER TABLE `users`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=52;
 
 --
 -- Dökümü yapılmış tablolar için kısıtlamalar
