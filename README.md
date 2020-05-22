@@ -16,7 +16,7 @@ Main idea is, creating a website for books to review them. We call this website 
 
 ## People:
 
-* Göksu Bayram - Lead of the team, Database Management.
+* Göksu Bayram - Team Leader, Database Management.
 * Fatih Karalar - Back-end Developer.
 * Ceren Keklik - Front-end Developer.
 * İrem Kürekçi - Front-end Developer.
