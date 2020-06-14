@@ -14,7 +14,7 @@ Main idea is, creating a website for books to review them. We call this website 
 * Admin system to add books, category, author, admin can also edit them.
 * User system to give points to the books and leave comments.
 
-## People:
+## Team:
 
 * Göksu Bayram - Team Leader, Database Management.
 * Fatih Karalar - Back-end Developer.
